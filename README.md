@@ -28,7 +28,10 @@ Nestjs Encoded API with swagger
 
   <b align="center">Test login api</b>
   
-       localhost:port/login  
+       localhost:port/login 
+  <b align="center">login api body</b>
+      
+      {"data":"911b4daf04b23aae285431ef27574cc3a0a11c435133f4a63d0d174518c37997c4a5f91957d9b519d6833633b941f4b2e0db"}  
 
   <b align="center">swagger Url</b>
   
