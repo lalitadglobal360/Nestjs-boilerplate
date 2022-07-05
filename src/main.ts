@@ -21,7 +21,6 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config, {});
   SwaggerModule.setup('api', app, document);
   const port = parseInt(process.env.SERVER_PORT);
-  console.log(process.env.MONGODB_CONNECTION_STRING)
   await app.listen(port);
 
   // const app = await NestFactory.createMicroservice<MicroserviceOptions>(

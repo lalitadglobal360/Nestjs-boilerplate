@@ -18,10 +18,19 @@ export class AppController {
     this.logger.log('Hello');
     return this.appService.getHello();
   }
+
+  @Post('encrypt-data')
+  async encrypt(@Body() plainData:any) {
+    const algorithm = process.env.CRYPTO_ALGORITHM;
+    const secretKey = process.env.CRYPTO_SECRET;
+    const iv = Buffer.from(process.env.CRYPTO_IV, 'hex');
+    const cipher = createCipheriv(algorithm, secretKey, iv);
+    const encrypted =  Buffer.concat([cipher.update(JSON.stringify(plainData)), cipher.final()]);
+    return {encrypted: encrypted.toString('hex')}
+  };
   
   //@UseGuards(AuthGuard('local'))
   @Post('login')
- 
   async login(@Body() loginData:loginDto) {
     console.log("login data",loginData)
 //     const algorithm = process.env.CRYPTO_ALGORITHM;

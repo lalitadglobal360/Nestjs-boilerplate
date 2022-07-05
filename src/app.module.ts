@@ -20,6 +20,7 @@ import {AppLoggerMiddleware} from './common/middleware/logger.middleware'
     entities: [
       __dirname + '/**/*.entity{.ts,.js}',
     ],
+    useUnifiedTopology: true
     // ssl: true,
     // useUnifiedTopology: true,
     // useNewUrlParser: true

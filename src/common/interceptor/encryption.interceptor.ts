@@ -1,4 +1,4 @@
-import { CallHandler, ExecutionContext, Injectable, NestInterceptor } from "@nestjs/common";
+import { CallHandler, ExecutionContext, Injectable, NestInterceptor, UnauthorizedException } from "@nestjs/common";
 import { Observable, tap,map } from "rxjs";
 import { createCipheriv, createDecipheriv, randomBytes, scrypt } from 'crypto';
 import { promisify } from 'util';
@@ -13,6 +13,9 @@ export class EncryptionInterceptor<T>  implements NestInterceptor<T, Response<T>
         const request = context.switchToHttp().getRequest();
         console.log("Before reaching the handler");
         //const encrypted = encrypt(body)
+        if(!body.data){
+            return next.handle().pipe();
+        }
         const decrypted = decrypt({data:body.data})
         console.log(`decrypt---${decrypted}`)
         request.body = JSON.parse(decrypted.data)
