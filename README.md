@@ -16,11 +16,17 @@ Nestjs Encoded API with swagger
 ## Installation
    <b align="center">Clone the repository</b>
   
-      git clone https://github.com/aglgit360/suzuki_cms_api_users.git
+      git clone https://github.com/aglgit360/suzuki_cms_api_users.git 
 
- Install dependencies
-    npm install
- Copy env example file and set the configurations
+    <b align="center">Install dependencies</b>
+  
+       npm install
+    <b align="center">Configuration</b>
+  
+       Copy env example file and set the configurations
+ 
+    
+ 
 
 ## Running the app
 
