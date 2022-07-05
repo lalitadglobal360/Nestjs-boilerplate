@@ -25,6 +25,14 @@ Nestjs Encoded API with swagger
    <b align="center">Configuration</b>
   
        Copy env example file and set the configurations
+
+  <b align="center">Test login api</b>
+  
+       localhost:port/login  
+
+  <b align="center">swagger Url</b>
+  
+       localhost:port/api       
  
     
  
