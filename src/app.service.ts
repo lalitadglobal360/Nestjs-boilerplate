@@ -1,8 +1,8 @@
 import { Injectable,Body, Req, Controller, HttpCode, Post, UseGuards } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import RegisterDto from './users/dto/create-user.dto';
-import Users from './users/entities/user.entity';
+import RegisterDto from './users/v1/dto/create-user.dto';
+import Users from './users/v1/entities/user.entity';
 @Injectable()
 export class AppService {
   constructor(

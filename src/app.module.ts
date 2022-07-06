@@ -4,9 +4,9 @@ import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 //import { ormConfig } from './database/config/ormconfig';
-import { UsersModule } from './users/users.module';
-import { AuthModule } from './auth/auth.module';
-import Users  from './users/entities/user.entity';
+import { UsersModule } from './users/v1/users.module';
+import { AuthModule } from './auth/v1/auth.module';
+import Users  from './users/v1/entities/user.entity';
 import {AppLoggerMiddleware} from './common/middleware/logger.middleware'
 @Module({
   imports: [
