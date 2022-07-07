@@ -1,10 +1,10 @@
-<p align="center">CMS Initial Setup</p>
+<p align="center">Nestjs Boilerplate</p>
     
 # Getting started
 
 ## Description
 
-CMS Initial Setup with swagger,winston logger,versioning,mongodb,and encoded apis for start working on cms apis
+Nestjs boilerplate
 
 ## Installation
    <b align="center">Clone the repository</b>
