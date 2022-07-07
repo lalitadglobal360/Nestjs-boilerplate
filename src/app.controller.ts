@@ -1,20 +1,15 @@
-import { Controller, Get,Body, Req, HttpCode, Post,  Request, UseGuards,Logger } from '@nestjs/common';
-import { SwaggerModule, DocumentBuilder,SwaggerDocumentOptions,ApiParam, ApiTags } from '@nestjs/swagger';
+import { Controller, Get,Body, Post,Logger } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { AppService } from './app.service';
-import RegisterDto from './users/v1/dto/create-user.dto';
-import loginDto from './auth/v1/dto/login.dto';
-import encryptionDto from './auth/v1/dto/encryption.dto';
-import { AuthGuard } from '@nestjs/passport';
-import { AuthService } from './auth/v1/auth.service';
-import { createCipheriv, createDecipheriv, randomBytes, scrypt } from 'crypto';
-import { promisify } from 'util';
-interface StringMap { [key: string]: string; }
+import {encryptionDto} from './users/v1/dto/encryption.dto';
+import { createCipheriv, createDecipheriv } from 'crypto';
+ 
 
 @ApiTags('dev')
 @Controller()
 export class AppController {
   private readonly logger = new Logger(AppController.name);
-  constructor(private readonly appService: AppService,private authService: AuthService) {}
+  constructor(private readonly appService: AppService) {}
 
   @Get()
   getHello(): string {
@@ -29,7 +24,7 @@ export class AppController {
     const iv = Buffer.from(process.env.CRYPTO_IV, 'hex');
     const cipher = createCipheriv(algorithm, secretKey, iv);
     const encrypted =  Buffer.concat([cipher.update(JSON.stringify(plainData)), cipher.final()]);
-    return {encrypted: encrypted.toString('hex')}
+    return {data: encrypted.toString('hex')}
   };
 
   @Post('decrypt-data')

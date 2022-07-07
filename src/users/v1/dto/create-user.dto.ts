@@ -11,11 +11,12 @@ import { IsEmail, IsNotEmpty } from "class-validator";
       description: 'Use the name property instead'
     })
 
-    data: string;
-    iv: string;
-
     @IsNotEmpty()
     name: string;
+
+    @IsNotEmpty()
+    role: string;
+
     @IsNotEmpty()
     password: string;
   }

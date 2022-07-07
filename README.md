@@ -1,15 +1,15 @@
-<p align="center">User Microservice</p>
+<p align="center">CMS Initial Setup</p>
     
 # Getting started
 
 ## Description
 
-User management microservice through administrator.
+CMS Initial Setup with swagger,winston logger,versioning,mongodb,and encoded apis for start working on cms apis
 
 ## Installation
    <b align="center">Clone the repository</b>
        
-       git clone https://github.com/aglgit360/suzuki_cms_api_users.git
+       git clone https://github.com/lalitadglobal360/initial_setup.git
 
 
    <b align="center">Install dependencies</b>
@@ -19,18 +19,23 @@ User management microservice through administrator.
   
        Copy env example file and set the configurations
 
-  <b align="center">Test login api</b>
+  <b align="center">Test encryption api</b>
   
-       localhost:port/login 
-  <b align="center">login api body</b>
+       http://localhost:port/api/v1/encrypt-data 
+  <b align="center">encryption body</b>
       
-      {"data":"911b4daf04b23aae285431ef27574cc3a0a11c435133f4a63d0d174518c37997c4a5f91957d9b519d6833633b941f4b2e0db"}  
+      {"username":"string",...obj}  
+
+  <b align="center">Test deryption api</b>
+  
+       http://localhost:port/api/v1/decrypt-data 
+  <b align="center">decryption body</b>
+      
+      {"encrypted":"911b4daf04b23aae285431ef27574cc3a0a17e081e22fcb96019175a5ecd61c594e4b95a0d89ac"}
 
   <b align="center">swagger Url</b>
   
        localhost:port/api       
- 
-    
  
 
 ## Running the app

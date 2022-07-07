@@ -5,9 +5,8 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 //import { ormConfig } from './database/config/ormconfig';
 import { UsersModule } from './users/v1/users.module';
-import { AuthModule } from './auth/v1/auth.module';
 import Users  from './users/v1/entities/user.entity';
-import {AppLoggerMiddleware} from './common/middleware/logger.middleware'
+import {LoggerMiddleware} from './common/middleware/logger.middleware'
 @Module({
   imports: [
     UsersModule,
@@ -24,12 +23,13 @@ import {AppLoggerMiddleware} from './common/middleware/logger.middleware'
     // ssl: true,
     // useUnifiedTopology: true,
     // useNewUrlParser: true
-  }), AuthModule,],
+  }),],
   controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule implements NestModule{
-  configure(consumer: MiddlewareConsumer): void {
-    consumer.apply(AppLoggerMiddleware).forRoutes('*');
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(LoggerMiddleware).forRoutes('*');
   }
+  
 }

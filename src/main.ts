@@ -4,8 +4,13 @@ import { AppModule } from './app.module';
 import { SwaggerModule, DocumentBuilder,SwaggerDocumentOptions } from '@nestjs/swagger';
 import { Transport, MicroserviceOptions } from '@nestjs/microservices';
 import { EncryptionInterceptor } from './common/interceptor/encryption.interceptor';
+import {appOptions} from './common/config/log-config'
+import  helmet from 'helmet';
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  
+  const app = await NestFactory.create(AppModule,appOptions);
+  app.use(helmet());
+  app.use(helmet.hidePoweredBy())
   app.useGlobalInterceptors(new EncryptionInterceptor());
   app.useGlobalPipes(new ValidationPipe())
   app.setGlobalPrefix('api');
