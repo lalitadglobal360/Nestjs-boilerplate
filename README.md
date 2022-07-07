@@ -9,7 +9,7 @@ CMS Initial Setup with swagger,winston logger,versioning,mongodb,and encoded api
 ## Installation
    <b align="center">Clone the repository</b>
        
-       git clone https://github.com/lalitadglobal360/initial_setup.git
+       git clone https://github.com/lalitadglobal360/Nestjs-boilerplate.git
 
 
    <b align="center">Install dependencies</b>
